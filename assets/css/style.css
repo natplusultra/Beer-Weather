@@ -26,9 +26,8 @@
 	margin-bottom: 15px;
 }
 
-#mapArea, #listArea {
+#weatherArea, #beerArea {
 	height: 450px;
-	background-color: lightgray;
 	border: 1px solid black;
 	margin: 30px auto;
 }
