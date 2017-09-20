@@ -2,7 +2,7 @@
 
 Must use at least two APIs
   -Google Maps
-  -Crime Data
+  -Weather Underground
 
 Must use AJAX to pull data
 
