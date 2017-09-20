@@ -1,12 +1,14 @@
 header {
-	padding: 170px 0px;
+	padding: 125px 0px;
+	background-image: url("../images/cheers.jpg");
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 body {
-  min-height: 100vh;
-  background-image: url("../images/cheers1.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url("../images/rustic.jpg");
+  background-size: 100%;
+  background-repeat: repeat;
 }
 
 #inputArea {
@@ -20,7 +22,7 @@ body {
 }
 
 #title {
-	font-size: 100px;
+	font-size: 115px;
 	letter-spacing: 3px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -32,19 +34,23 @@ body {
 }
 
 #userInput {
-	width: 300px;
-	padding-left: 20px;
+	width: 200px;
+	padding-left: 10px;
 }
 
 #textArea {
 	font-size: 17px;
-	margin-bottom: 15px;
+	margin: 85px 0px;
 	color: white;
 }
 
 #weatherArea, #beerArea {
-	border: 1px solid black;
+	border: 1px solid white;
 	margin: 30px auto;
 	height: 100px;
 	color: white;
+}
+
+#topBeer {
+	margin: 50px 0px;
 }

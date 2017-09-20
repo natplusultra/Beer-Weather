@@ -14,31 +14,38 @@
 	<header>
 		<h1 class="text-center" id="title">BeerCast</h1>
 		<h4 class="header-text text-center" id="slogan">A beer for any weather, any time.</h4>
+		
+		<div class="container">
+			<div class="row" id="textArea">
+				<p class="text-center">Some text about why beer and weather. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, recusandae eaque consequuntur reprehenderit esse eos, at consequatur architecto nihil quibusdam, ex aperiam asperiores deleniti tempora modi dolor nam atque nesciunt!</p>
+			</div>
+
+			<div class="row" id="inputArea">
+				<form class="text-center" id="zipCodeForm">
+					<input type="text" id="userInput" placeholder="Enter a zip code">
+				    <button type="submit" id="submit-btn" class="btn btn-dark">Submit</button>
+				</form>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 col-lg-12" id="weatherArea">
+					Where the 3-day weather forecast will display
+				</div>
+			</div>
+		</div>
 	</header>
 
 	<div class="container">
-		<div class="row" id="textArea">
-			<p class="text-center">Some text about why beer and weather. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, recusandae eaque consequuntur reprehenderit esse eos, at consequatur architecto nihil quibusdam, ex aperiam asperiores deleniti tempora modi dolor nam atque nesciunt!</p>
-		</div>
-
-		<div class="row" id="inputArea">
-			<form class="text-center" id="zipCodeForm">
-				<input type="text" id="userInput" placeholder="Enter a zip code">
-			    <button type="submit" id="submit-btn" class="btn btn-dark">Submit</button>
-			</form>
-		</div>
-
 		<div class="row">
-			<div class="col-sm-12 col-lg-12" id="weatherArea">
-				Where the 3-day weather forecast will display
-			</div>
 			<div class="col-sm-12 col-lg-12" id="beerArea">
 				Where the recommended beers are listed
 			</div>
 		</div>
 
-		<div>
-			
+		<div class="row" id="topBeer">
+			<div class="col-sm-12 col-lg-12">
+				<button type="button" id="top-beer-btn" class="btn btn-dark">Click here for the top rated beer</button>
+			</div>
 		</div>
 	</div>
 	
