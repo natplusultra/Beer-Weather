@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>BEER THING</title>
+	<title>BeerCast</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="https://bootswatch.com/united/bootstrap.min.css"/>
@@ -11,32 +11,34 @@
 </head>
 
 <body>
-	<header class="jumbotron">
-		<h1 class="text-center" id="title">BEER THING</h1>
-		<p class="header-text text-center" id="slogan">A beer for any season.</p>
+	<header>
+		<h1 class="text-center" id="title">BeerCast</h1>
+		<h4 class="header-text text-center" id="slogan">A beer for any weather, any time.</h4>
 	</header>
 
 	<div class="container">
 		<div class="row" id="textArea">
-			<p class="text-center">Some text about why beer and weather</p>
+			<p class="text-center">Some text about why beer and weather. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, recusandae eaque consequuntur reprehenderit esse eos, at consequatur architecto nihil quibusdam, ex aperiam asperiores deleniti tempora modi dolor nam atque nesciunt!</p>
 		</div>
 
 		<div class="row" id="inputArea">
-			<button type="button" class="btn btn-dark" id="findLocation">Find my location</button>
-			<br/>
-			<form class="text-center" id="addressForm">
+			<form class="text-center" id="zipCodeForm">
 				<input type="text" id="userInput" placeholder="Enter a zip code">
 			    <button type="submit" id="submit-btn" class="btn btn-dark">Submit</button>
 			</form>
 		</div>
 
 		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" id="weatherArea">
+			<div class="col-sm-12 col-lg-12" id="weatherArea">
 				Where the 3-day weather forecast will display
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" id="beerArea">
+			<div class="col-sm-12 col-lg-12" id="beerArea">
 				Where the recommended beers are listed
 			</div>
+		</div>
+
+		<div>
+			
 		</div>
 	</div>
 	

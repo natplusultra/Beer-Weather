@@ -1,7 +1,22 @@
-#findLocation, #inputArea {
+header {
+	padding: 170px 0px;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url("../images/cheers1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#inputArea {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#zipCodeForm {
+	padding: 50px 0px;
 }
 
 #title {
@@ -24,10 +39,12 @@
 #textArea {
 	font-size: 17px;
 	margin-bottom: 15px;
+	color: white;
 }
 
 #weatherArea, #beerArea {
-	height: 450px;
 	border: 1px solid black;
 	margin: 30px auto;
+	height: 100px;
+	color: white;
 }
