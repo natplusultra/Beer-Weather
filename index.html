@@ -26,7 +26,7 @@
 			<form class="text-center" id="cityForm">
 				<input type="text" id="userInput" placeholder="Enter your city">
 			    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-			        <option selected>State</option>
+			        <option selected value="default">State</option>
 			    </select>
 			    <button type="submit" id="submit-btn" class="btn">Submit</button>
 			</form>
@@ -34,13 +34,13 @@
 
 		<div class="row">
 			<div class="col-sm-12 col-lg-12" id="weatherArea">
-				Where the 3-day weather forecast will display
+				<p class="text-center body-content">Three-day weather forecast for <span id="spanCity">City</span>, <span id="spanState">State</span></p>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-sm-12 col-lg-12" id="beerArea">
-				Where the recommended beers are listed
+				<p class="text-center body-content">Recommended beers for a <span id="spanWeather">...</span> day</p>
 			</div>
 		</div>
 
