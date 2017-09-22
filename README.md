@@ -1,4 +1,4 @@
-# Crime-Map
+# Beer Weather App
 
 Must use at least two APIs
   -Google Maps

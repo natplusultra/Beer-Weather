@@ -16,10 +16,9 @@ var database = firebase.database();
 var queryURL = "http://api.brewerydb.com/v2/beers?styleId=97&key=e97ade06c4cddc2a58ecba58cb8b4bd9";
 
 
-   $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).done(function(response) {
-
-     console.log(response);
-    });
+$.ajax({
+    url: queryURL,
+    method: "GET"
+}).done(function(response) {
+	console.log(response);
+});
