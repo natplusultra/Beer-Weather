@@ -1,11 +1,25 @@
+// initialize firebase
+var config = {
+    apiKey: "AIzaSyBVrLMdbFF2eJcsvaRot7T1yqYuXdy-SEI",
+    authDomain: "beercast-149f8.firebaseapp.com",
+    databaseURL: "https://beercast-149f8.firebaseio.com",
+    projectId: "beercast-149f8",
+    storageBucket: "beercast-149f8.appspot.com",
+    messagingSenderId: "599636463743"
+};
 
-/*
-- Input zipcode, validate the input
-- Pull the weather and location
-- Using location, locate local breweries
-- Using the weather, determine category of beer to pull from
-- Return 10-20 recommendations of beers
-- Use firebase to track recommended beers and save favorites
-	- Create a function for logging in and creating a user profile that will be stored in firebase so that you can save your favorites
-- Find a new library or technology to use (something for front end is probably easiest to learn)
-*/
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
+// ajax call to breweryDB api
+var queryURL = "http://api.brewerydb.com/v2/beers?styleId=97&key=e97ade06c4cddc2a58ecba58cb8b4bd9";
+
+
+   $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).done(function(response) {
+
+     console.log(response);
+    });
