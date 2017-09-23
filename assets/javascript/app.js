@@ -83,6 +83,11 @@ function createForecast() {
 	});
 }
 
+// function to pull beer types from the beer API based on weather type and then dynamically create the beer cards to display on tne DOM
+function createBeerRecs() {
+	$("#beerArea").empty(); // empties beerArea div to prevent duplicates
+}
+
 
 // when button is clicked, createForecast function is called and data is pushed to firebase
 $("#submit-btn").on("click", function(event) {
