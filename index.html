@@ -12,28 +12,33 @@
 </head>
 
 <body>
-	<header>
-		<h1 class="text-center" id="title">BeerCast</h1>
-		<h4 class="header-text text-center" id="slogan">A beer for any weather, any time.</h4>
-	</header>
+	<div class="row topDiv">
+		<header>
+			<h1 class="text-center" id="title">BeerCast</h1>
+			<h4 class="header-text text-center" id="slogan">A beer for any weather, any time.</h4>
+		</header>
+
+		<div class="container">
+			<div class="row" id="textArea">
+				<p class="text-center">Some text about why beer and weather. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, recusandae eaque consequuntur reprehenderit esse eos, at consequatur architecto nihil quibusdam, ex aperiam asperiores deleniti tempora modi dolor nam atque nesciunt!</p>
+			</div>
+
+			<div class="row" id="inputArea">
+				<form class="text-center" id="cityForm">
+					<input type="text" id="userInput" placeholder="Enter your city">
+				    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+				        <option selected value="default">State</option>
+				    </select>
+				    <button type="submit" id="submit-btn" class="btn">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
 
 	<div class="container">
-		<div class="row" id="textArea">
-			<p class="text-center">Some text about why beer and weather. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, recusandae eaque consequuntur reprehenderit esse eos, at consequatur architecto nihil quibusdam, ex aperiam asperiores deleniti tempora modi dolor nam atque nesciunt!</p>
-		</div>
-
-		<div class="row" id="inputArea">
-			<form class="text-center" id="cityForm">
-				<input type="text" id="userInput" placeholder="Enter your city">
-			    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
-			        <option selected value="default">State</option>
-			    </select>
-			    <button type="submit" id="submit-btn" class="btn">Submit</button>
-			</form>
-		</div>
-
 		<div class="row">
-			<div class="col-sm-12 col-lg-12" id="weatherArea">
+			<div class="col-sm-12 col-lg-12 text-center" id="weatherArea">
 			</div>
 		</div>
 

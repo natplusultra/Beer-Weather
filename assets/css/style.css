@@ -1,11 +1,17 @@
 header {
 	padding: 70px 0px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 body {
   background-image: url("../images/cheers.jpg"), url("../images/rustic.jpg");
   background-size: 100%;
   background-repeat: no-repeat, repeat;
+}
+
+.topDiv {
+	height: 100vh;
 }
 
 #inputArea {
