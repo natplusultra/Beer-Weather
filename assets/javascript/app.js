@@ -23,14 +23,13 @@ var userState;
 // code for creating a drop down form selector for the states
 var statesArray = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"];
 
-$(document).ready(function() {
-	for (var i = 0; i < statesArray.length; i++) {
-		var stateOption = $("<option>");
-		stateOption.attr("value", statesArray[i]);
-		stateOption.html(statesArray[i]);
-		$("#inlineFormCustomSelect").append(stateOption);
-	}
-});
+for (var i = 0; i < statesArray.length; i++) {
+	var stateOption = $("<option>");
+	stateOption.attr("value", statesArray[i]);
+	stateOption.html(statesArray[i]);
+	$("#inlineFormCustomSelect").append(stateOption);
+}
+
 
 // function to dynamically add a 3-day weather forecast to the DOM based on city and state input
 function createForecast() {
@@ -47,7 +46,40 @@ function createForecast() {
 		var response = response.forecast.txt_forecast.forecastday;
 
 		// creates a display card for each day's forecast that contains the date/day, weather image, temperature, and weather description
-		 
+		for (var i = 0; i < 6; i++) {
+			var weatherCard = $("<div>");
+			weatherCard.addClass("card weatherCard text-center");
+			weatherCard.attr("style", "background-color: rgba(245, 245, 245, 0.4);");
+
+			var cardImg = $("<img>");
+			cardImg.addClass("card-img-top weatherImg");
+			cardImg.attr("src", response[i].icon_url);
+			cardImg.attr("alt", "Weather icon");
+
+			var cardBody = $("<div>");
+			cardBody.addClass("card-body");
+
+			var cardTitle = $("<h4>");
+			cardTitle.addClass("card-title");
+			cardTitle.html(response[i].title);
+
+			var cardDesc = $("<p>");
+			cardDesc.addClass("card-text");
+			cardDesc.html(response[i].fcttext);
+
+			var beerRecsBtn = $("<button>");
+			beerRecsBtn.addClass("btn btn-primary");
+			beerRecsBtn.html("Beer Me");
+
+			weatherCard.append(cardImg);
+			weatherCard.append(cardBody);
+			cardBody.append(cardTitle);
+			cardBody.append(cardDesc);
+			cardBody.append(beerRecsBtn);
+			$("#weatherArea").append(weatherCard);
+		}
+		var weatherDivText = $("<p class='text-center body-content'>Three day weather forecast for " + userCity + ", " + userState + " </p>");
+		$("#weatherArea").prepend(weatherDivText);
 	});
 }
 
@@ -74,22 +106,18 @@ $("#submit-btn").on("click", function(event) {
 	$("#userInput").val("");
 	$("#inlineFormCustomSelect").val("default");
 
-	// adds the city and state values to the html
-	$("#spanCity").html(userCity);
-	$("#spanState").html(userState);
-
-
 	createForecast();
 });
+
 	
 // ajax call to breweryDB api
-var queryURL = "http://api.brewerydb.com/v2/beers?styleId=97&key=e97ade06c4cddc2a58ecba58cb8b4bd9";
+// var queryURL = "http://api.brewerydb.com/v2/beers?styleId=97&key=e97ade06c4cddc2a58ecba58cb8b4bd9";
 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).done(function(response) {
-	console.log(response);
-});
+// $.ajax({
+//     url: queryURL,
+//     method: "GET"
+// }).done(function(response) {
+// 	console.log(response);
+// });
 
 

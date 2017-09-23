@@ -1,5 +1,5 @@
 header {
-	padding: 100px 0px;
+	padding: 70px 0px;
 }
 
 body {
@@ -41,7 +41,7 @@ body {
 	color: white;
 }
 
-#weatherArea, #beerArea {
+#beerArea {
 	border: 1px solid white;
 	margin: 30px auto;
 	height: 200px;
@@ -64,4 +64,26 @@ body {
 
 .body-content {
 	font-size: 20px;
+	color: white;
+}
+
+#weatherArea {
+	margin-top: 20px;
+}
+
+.weatherCard {
+	width: 150px;
+	color: black;
+	display: inline-flex;
+	margin: 10px;
+}
+
+.weatherImg {
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.card-title {
+	font-weight: bold;
 }
