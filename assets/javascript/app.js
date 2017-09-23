@@ -19,6 +19,7 @@ var beers = database.child("beers");
 // initalize global variables
 var userCity;
 var userState;
+var beerStyleID;
 
 // code for creating a drop down form selector for the states
 var statesArray = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"];
@@ -68,8 +69,10 @@ function createForecast() {
 			cardDesc.html(response[i].fcttext);
 
 			var beerRecsBtn = $("<button>");
-			beerRecsBtn.addClass("btn btn-primary");
+			beerRecsBtn.addClass("btn btn-primary beer-recs-btn");
+			beerRecsBtn.attr("weatherType", response[i].icon);
 			beerRecsBtn.html("Beer Me");
+			// console.log(beerRecsBtn.attr("weatherType"));
 
 			weatherCard.append(cardImg);
 			weatherCard.append(cardBody);
@@ -83,11 +86,23 @@ function createForecast() {
 	});
 }
 
-// function to pull beer types from the beer API based on weather type and then dynamically create the beer cards to display on tne DOM
+// function to pull beer types from the breweryDB API based on weather type and then dynamically create the beer cards to display on tne DOM
 function createBeerRecs() {
 	$("#beerArea").empty(); // empties beerArea div to prevent duplicates
-}
 
+	var queryURL = "https://cors.io/?http://api.brewerydb.com/v2/beers?key=e97ade06c4cddc2a58ecba58cb8b4bd9&" + beerStyleID;
+	// var queryURL = "https://cors.io/?http://api.brewerydb.com/v2/beers?key=e97ade06c4cddc2a58ecba58cb8b4bd9&styleId=97";
+
+	// ajax call to the breweryDB API
+	$.ajax ({
+		url: queryURL,
+		method: "GET",
+		// format: "application/json"
+	}).done(function(response) {
+		var newResponse = JSON.parse(response);
+		console.log(newResponse);
+	});
+}
 
 // when button is clicked, createForecast function is called and data is pushed to firebase
 $("#submit-btn").on("click", function(event) {
@@ -114,15 +129,19 @@ $("#submit-btn").on("click", function(event) {
 	createForecast();
 });
 
-	
-// ajax call to breweryDB api
-// var queryURL = "http://api.brewerydb.com/v2/beers?styleId=97&key=e97ade06c4cddc2a58ecba58cb8b4bd9";
+// when "Beer Me" button is clicked, the weather type for that day is grabbed and the createBeerRecs function is called
+$("body").on("click", ".beer-recs-btn",function(event) {
+	event.preventDefault();
 
-// $.ajax({
-//     url: queryURL,
-//     method: "GET"
-// }).done(function(response) {
-// 	console.log(response);
-// });
+	// grabs the weather type for the day clicked
+	var weatherType = $(this).attr("weatherType");
+	console.log(weatherType);
+
+	if (weatherType == "cloudy" || ) {
+		beerStyleID = /*stouts*/;
+	}
+
+	createBeerRecs();
+});
 
 
