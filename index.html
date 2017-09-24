@@ -13,47 +13,45 @@
 
 <body>
 	<div class="row topDiv">
-		<header>
+		<header class="col-sm-12 col-xl-12">
 			<h1 class="text-center" id="title">BeerCast</h1>
 			<h4 class="header-text text-center" id="slogan">A beer for any weather, any time.</h4>
 		</header>
 
 		<div class="container">
-			<div class="row" id="textArea">
+			<div class="col-sm-12 col-xl-12" id="textArea">
 				<p class="text-center">Some text about why beer and weather. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, recusandae eaque consequuntur reprehenderit esse eos, at consequatur architecto nihil quibusdam, ex aperiam asperiores deleniti tempora modi dolor nam atque nesciunt!</p>
 			</div>
 
-			<div class="row" id="inputArea">
+			<div class="col-sm-12 col-xl-12" id="inputArea">
 				<form class="text-center" id="cityForm">
 					<input type="text" id="userInput" placeholder="Enter your city">
 				    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
 				        <option selected value="default">State</option>
 				    </select>
-				    <button type="submit" id="submit-btn" class="btn">Submit</button>
+				    <button type="submit" id="submit-btn" class="btn" onclick="location.href='#weatherArea';">Submit</button>
 				</form>
 			</div>
 		</div>
 	</div>
 	
-
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 col-lg-12 text-center" id="weatherArea">
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-sm-12 col-lg-12" id="beerArea">
-				<p class="text-center body-content">Recommended beer for a <span id="spanWeather">...</span> day</p>
-			</div>
-		</div>
-
-		<div class="row" id="topBeer">
-			<div class="col-sm-12 col-lg-12">
-				<button type="button" id="top-beer-btn" class="btn">Click here for the top rated beer</button>
-			</div>
+	<div class="row">
+		<div class="col-sm-12 col-lg-12 text-center" id="weatherArea">
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="col-sm-12 col-lg-12" id="beerArea">
+			<!-- <p class="text-center body-content">Recommended beer for a <span id="spanWeather">...</span> day</p> -->
+		</div>
+	</div>
+
+	<!-- <div class="row" id="topBeer">
+		<div class="col-sm-12 col-lg-12">
+			<button type="button" id="top-beer-btn" class="btn">Click here for the top rated beer</button>
+		</div>
+	</div> -->
+
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/javascript/app.js"></script>

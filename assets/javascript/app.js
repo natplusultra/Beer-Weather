@@ -16,7 +16,7 @@ var database = firebase.database().ref("/");
 var loc = database.child("location");
 var beers = database.child("beers");
 
-// initalize global variables
+// initialize global variables
 var userCity;
 var userState;
 var beerStyleID;
@@ -46,7 +46,7 @@ function createForecast() {
 		console.log(response);
 		var response = response.forecast.txt_forecast.forecastday;
 
-		// creates a display card for each day's forecast that contains the date/day, weather image, temperature, and weather description
+		// creates a display card for each day's forecast that contains the day, weather image, temperature, and weather description
 		for (var i = 0; i < 6; i++) {
 			var weatherCard = $("<div>");
 			weatherCard.addClass("card weatherCard text-center");
@@ -81,7 +81,7 @@ function createForecast() {
 			cardBody.append(beerRecsBtn);
 			$("#weatherArea").append(weatherCard);
 		}
-		var weatherDivText = $("<p class='text-center body-content'>Three day weather forecast for " + userCity + ", " + userState + " </p>");
+		var weatherDivText = $("<p class='text-center body-content'>Three-day weather forecast for " + userCity + ", " + userState + " </p>");
 		$("#weatherArea").prepend(weatherDivText);
 	});
 }
@@ -90,8 +90,8 @@ function createForecast() {
 function createBeerRecs() {
 	$("#beerArea").empty(); // empties beerArea div to prevent duplicates
 
-	var queryURL = "https://cors.io/?http://api.brewerydb.com/v2/beers?key=e97ade06c4cddc2a58ecba58cb8b4bd9&" + beerStyleID;
-	// var queryURL = "https://cors.io/?http://api.brewerydb.com/v2/beers?key=e97ade06c4cddc2a58ecba58cb8b4bd9&styleId=97";
+	// var queryURL = "https://cors.io/?http://api.brewerydb.com/v2/beers?key=e97ade06c4cddc2a58ecba58cb8b4bd9&" + beerStyleID;
+	var queryURL = "https://cors.io/?http://api.brewerydb.com/v2/beers?key=e97ade06c4cddc2a58ecba58cb8b4bd9&styleId=97";
 
 	// ajax call to the breweryDB API
 	$.ajax ({
@@ -137,9 +137,9 @@ $("body").on("click", ".beer-recs-btn",function(event) {
 	var weatherType = $(this).attr("weatherType");
 	console.log(weatherType);
 
-	if (weatherType == "cloudy" || ) {
-		beerStyleID = /*stouts*/;
-	}
+	// if (weatherType == "cloudy" || ) {
+	// 	beerStyleID = /*stouts*/;
+	// }
 
 	createBeerRecs();
 });

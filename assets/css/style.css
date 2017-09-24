@@ -5,12 +5,15 @@ header {
 }
 
 body {
-  background-image: url("../images/cheers.jpg"), url("../images/rustic.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat, repeat;
+  /*background-image: url("../images/cheers.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;*/
 }
 
 .topDiv {
+	background-image: url("../images/cheers.jpg");
+  	background-size: cover;
+  	background-repeat: no-repeat;
 	height: 100vh;
 }
 
@@ -47,16 +50,18 @@ body {
 	color: white;
 }
 
-#beerArea {
-	border: 1px solid white;
-	margin: 30px auto;
-	height: 200px;
-	color: white;
+#weatherArea, #beerArea {
+	margin: auto;
 }
 
-#topBeer {
-	margin: 50px 0px;
+#weatherArea {
+	background-color: #1a2738;
+	display: block;
 }
+
+/*#topBeer {
+	margin: 50px 0px;
+}*/
 
 .btn {
 	background-color: #337ab7;
@@ -71,17 +76,14 @@ body {
 .body-content {
 	font-size: 20px;
 	color: white;
-}
-
-#weatherArea {
-	margin-top: 20px;
+	margin: 30px 0px;
 }
 
 .weatherCard {
-	width: 150px;
+	width: 200px;
 	color: black;
 	display: inline-flex;
-	margin: 10px;
+	margin: 10px 10px 40px 10px;
 }
 
 .weatherImg {
