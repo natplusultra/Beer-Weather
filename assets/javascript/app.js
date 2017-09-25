@@ -20,6 +20,7 @@ var beers = database.child("beers");
 var userCity;
 var userState;
 var beerStyleID;
+var dayOfWeek;
 
 // code for creating a drop down form selector for the states
 var statesArray = ["AK", "AL", "AR", "AZ", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "KY", "LA", "MA", "MD", "ME", "MI", "MN", "MO", "MS", "MT", "NC", "ND", "NE", "NH", "NJ", "NM", "NV", "NY", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"];
@@ -71,8 +72,9 @@ function createForecast() {
 			var beerRecsBtn = $("<button>");
 			beerRecsBtn.addClass("btn btn-primary beer-recs-btn");
 			beerRecsBtn.attr("weatherType", response[i].icon);
+			beerRecsBtn.attr("dayOfWeek", response[i].title);
 			beerRecsBtn.html("Beer Me");
-			// console.log(beerRecsBtn.attr("weatherType"));
+			console.log(beerRecsBtn.attr("weatherType"));
 
 			weatherCard.append(cardImg);
 			weatherCard.append(cardBody);
@@ -81,7 +83,7 @@ function createForecast() {
 			cardBody.append(beerRecsBtn);
 			$("#weatherArea").append(weatherCard);
 		}
-		var weatherDivText = $("<p class='text-center body-content'>Three-day weather forecast for " + userCity + ", " + userState + " </p>");
+		var weatherDivText = $("<p class='text-center' id='weatherDivText'>Three-day weather forecast for " + userCity + ", " + userState + " </p>");
 		$("#weatherArea").prepend(weatherDivText);
 	});
 }
@@ -96,11 +98,49 @@ function createBeerRecs() {
 	// ajax call to the breweryDB API
 	$.ajax ({
 		url: queryURL,
-		method: "GET",
-		// format: "application/json"
+		method: "GET"
 	}).done(function(response) {
-		var newResponse = JSON.parse(response);
-		console.log(newResponse);
+		var response = JSON.parse(response); // returns the response in a readable JSON format instead of a string
+		console.log(response);
+		var newResponse = response.data;
+
+		// creates a display card for each recommended beer that contains an image, the beer name, and the beer description
+		for (var i = 0; i < 10; i++) {
+			var beerCard = $("<div>");
+			beerCard.addClass("card beerCard text-center");
+
+			var cardImg = $("<img>");
+			cardImg.addClass("card-img-top beerImg");
+			cardImg.attr("src", "../images/beer-img.jpg"); // this isn't working. it can't locate this file for some reason
+			cardImg.attr("alt", "Beer background image");
+
+			var cardBody = $("<div>");
+			cardBody.addClass("card-body");
+			cardBody.attr("style", "background-color: rgba(245, 245, 245, 0.4);");
+
+			var cardTitle = $("<h4>");
+			cardTitle.addClass("beer-title");
+			cardTitle.html(newResponse[i].name);
+
+			var cardDesc = $("<p>");
+			cardDesc.addClass("beer-text");
+			cardDesc.html(newResponse[i].style.description);
+
+			var voteBtn = $("<button>");
+			voteBtn.addClass("btn btn-primary vote-btn");
+			voteBtn.attr("beerID", newResponse[i].id);
+			voteBtn.html("Upvote!");
+			console.log(voteBtn.attr("beerID"));
+
+			beerCard.append(cardImg);
+			beerCard.append(cardBody);
+			cardBody.append(cardTitle);
+			cardBody.append(cardDesc);
+			cardBody.append(voteBtn);
+			$("#beerArea").append(beerCard);
+		}
+		var beerDivText = $("<p class='text-center' id='beerDivText'>Recommended beer for " + dayOfWeek + "</p>");
+		$("#beerArea").prepend(beerDivText);
 	});
 }
 
@@ -132,6 +172,10 @@ $("#submit-btn").on("click", function(event) {
 // when "Beer Me" button is clicked, the weather type for that day is grabbed and the createBeerRecs function is called
 $("body").on("click", ".beer-recs-btn",function(event) {
 	event.preventDefault();
+
+	// stores the clicked day to use as input in beerDivText
+	dayOfWeek = $(this).attr("dayOfWeek");
+	console.log(dayOfWeek);
 
 	// grabs the weather type for the day clicked
 	var weatherType = $(this).attr("weatherType");
