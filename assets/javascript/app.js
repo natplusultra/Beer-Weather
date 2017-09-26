@@ -166,7 +166,13 @@ $("#submit-btn").on("click", function(event) {
 	$("#userInput").val("");
 	$("#inlineFormCustomSelect").val("default");
 
+	// calls function that dynamically generates the weather forecast
 	createForecast();
+
+	// automatically scrolls to the forecast once it's generated
+	$("html, body").animate({
+		scrollTop: $("#weatherArea").offset().top
+	}, 1000);
 });
 
 // when "Beer Me" button is clicked, the weather type for that day is grabbed and the createBeerRecs function is called

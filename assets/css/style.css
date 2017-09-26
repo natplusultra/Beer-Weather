@@ -4,12 +4,6 @@ header {
 	margin-right: auto;
 }
 
-body {
-  /*background-image: url("../images/cheers.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;*/
-}
-
 .topDiv {
 	background-image: url("../images/cheers.jpg");
   	background-size: cover;
@@ -103,7 +97,7 @@ body {
 }
 
 #beerArea {
-	background-image: url("..images/rustic.jpg");
+	background-image: url("..images/rustic.jpg"); /* this is not working. it can't locate this file for some reason*/
 	background-size: cover;
   	background-repeat: repeat-y;
 }
