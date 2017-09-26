@@ -97,7 +97,7 @@ header {
 }
 
 #beerArea {
-	background-image: url("..images/rustic.jpg"); /* this is not working. it can't locate this file for some reason*/
+	background-image: url("../images/rustic.jpg"); /* this is not working. it can't locate this file for some reason*/
 	background-size: cover;
   	background-repeat: repeat-y;
 }
@@ -108,3 +108,21 @@ header {
 	margin: 30px 0px;
 }
 
+
+/*input:invalid {
+  background-color: red;
+}*/
+/*
+input:valid {
+  background-color: green;
+}*/
+  
+input:required {
+  border-color: red;
+  border-width: 5px;
+}
+
+input:required:valid {
+  border-color: green;
+  border-width: 5px;  
+}
