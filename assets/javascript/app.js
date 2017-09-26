@@ -19,7 +19,7 @@ var beers = database.child("beers");
 // initialize global variables
 var userCity;
 var userState;
-var beerStyleID;
+var beerType;
 var dayOfWeek;
 
 // code for creating a drop down form selector for the states
@@ -31,7 +31,6 @@ for (var i = 0; i < statesArray.length; i++) {
 	stateOption.html(statesArray[i]);
 	$("#inlineFormCustomSelect").append(stateOption);
 }
-
 
 // function to dynamically add a 3-day weather forecast to the DOM based on city and state input
 function createForecast() {
@@ -83,63 +82,70 @@ function createForecast() {
 			cardBody.append(beerRecsBtn);
 			$("#weatherArea").append(weatherCard);
 		}
-		var weatherDivText = $("<p class='text-center' id='weatherDivText'>Three-day weather forecast for " + userCity + ", " + userState + " </p>");
+		var weatherDivText = "<p class='text-center' id='weatherDivText'>Three-day weather forecast for " + userCity + ", " + userState + " </p>";
 		$("#weatherArea").prepend(weatherDivText);
 	});
 }
 
-// function to pull beer types from the breweryDB API based on weather type and then dynamically create the beer cards to display on tne DOM
+// function to pull beer types from the Punk API based on weather type and then dynamically create the beer cards to display on tne DOM
 function createBeerRecs() {
 	$("#beerArea").empty(); // empties beerArea div to prevent duplicates
 
-	// var queryURL = "https://cors.io/?http://api.brewerydb.com/v2/beers?key=e97ade06c4cddc2a58ecba58cb8b4bd9&" + beerStyleID;
-	var queryURL = "https://cors.io/?http://api.brewerydb.com/v2/beers?key=e97ade06c4cddc2a58ecba58cb8b4bd9&styleId=97";
+	// var queryURL = "https://api.punkapi.com/v2/beers?beer_name=" + beerType;
+	var queryURL = "https://api.punkapi.com/v2/beers?beer_name=lager";
 
-	// ajax call to the breweryDB API
+	// ajax call to the Punk API
 	$.ajax ({
 		url: queryURL,
 		method: "GET"
 	}).done(function(response) {
-		var response = JSON.parse(response); // returns the response in a readable JSON format instead of a string
+		var response = response;
 		console.log(response);
-		var newResponse = response.data;
 
 		// creates a display card for each recommended beer that contains an image, the beer name, and the beer description
-		for (var i = 0; i < 10; i++) {
+		for (var i = 0; i < response.length; i++) {
 			var beerCard = $("<div>");
 			beerCard.addClass("card beerCard text-center");
+			beerCard.attr("style", "background-color: rgba(245, 245, 245, 0.5);");
+
+			var cardRow = $("<div>");
+			cardRow.addClass("row");
+
+			var cardColImg = $("<div>");
+			cardColImg.addClass("col-md-3");
 
 			var cardImg = $("<img>");
-			cardImg.addClass("card-img-top beerImg");
-			cardImg.attr("src", "../images/beer-img.jpg"); // this isn't working. it can't locate this file for some reason
-			cardImg.attr("alt", "Beer background image");
+			cardImg.addClass("card-img-top beerImg text-center");
+			cardImg.attr("src", response[i].image_url);
+			cardImg.attr("alt", response[i].name + "image");
 
 			var cardBody = $("<div>");
-			cardBody.addClass("card-body");
-			cardBody.attr("style", "background-color: rgba(245, 245, 245, 0.4);");
+			cardBody.addClass("col-md-9 card-body");
 
 			var cardTitle = $("<h4>");
 			cardTitle.addClass("beer-title");
-			cardTitle.html(newResponse[i].name);
+			cardTitle.html(response[i].name);
 
 			var cardDesc = $("<p>");
 			cardDesc.addClass("beer-text");
-			cardDesc.html(newResponse[i].style.description);
+			cardDesc.html(response[i].description);
 
 			var voteBtn = $("<button>");
 			voteBtn.addClass("btn btn-primary vote-btn");
-			voteBtn.attr("beerID", newResponse[i].id);
+			voteBtn.attr("beerID", response[i].id);
 			voteBtn.html("Upvote!");
 			console.log(voteBtn.attr("beerID"));
 
-			beerCard.append(cardImg);
-			beerCard.append(cardBody);
+			beerCard.append(cardRow);
+			cardRow.append(cardColImg);
+			cardColImg.append(cardImg);
+			cardRow.append(cardBody);
 			cardBody.append(cardTitle);
 			cardBody.append(cardDesc);
 			cardBody.append(voteBtn);
 			$("#beerArea").append(beerCard);
 		}
-		var beerDivText = $("<p class='text-center' id='beerDivText'>Recommended beer for " + dayOfWeek + "</p>");
+		var beerDivText = "<p class='text-center' id='beerDivText'>Recommended beers for " + dayOfWeek + "</p>";
 		$("#beerArea").prepend(beerDivText);
 	});
 }
@@ -175,7 +181,7 @@ $("#submit-btn").on("click", function(event) {
 	}, 1000);
 });
 
-// when "Beer Me" button is clicked, the weather type for that day is grabbed and the createBeerRecs function is called
+// when "Beer Me" button is clicked, the weather type for that day is grabbed and the createBeerRecs function is calle
 $("body").on("click", ".beer-recs-btn",function(event) {
 	event.preventDefault();
 
@@ -187,11 +193,14 @@ $("body").on("click", ".beer-recs-btn",function(event) {
 	var weatherType = $(this).attr("weatherType");
 	console.log(weatherType);
 
-	// if (weatherType == "cloudy" || ) {
-	// 	beerStyleID = /*stouts*/;
+	// if (weatherType == "cloudy" || "partly cloudy") {
+	// 	beerType = stout;
 	// }
 
 	createBeerRecs();
+
+	// automatically scrolls to the recommended beers once they're generated
+	$("html, body").animate({
+		scrollTop: $("#beerArea").offset().top
+	}, 1000);
 });
-
-

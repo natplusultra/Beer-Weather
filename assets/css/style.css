@@ -66,7 +66,7 @@ header {
 	color: black;
 }
 
-#weatherDivText {
+#weatherDivText, #beerDivText {
 	font-size: 25px;
 	color: white;
 	margin: 30px 0px;
@@ -89,23 +89,32 @@ header {
 	font-weight: bold;
 }
 
+.beer-title {
+	font-size: 25px;
+}
+
+.beer-text {
+	font-size: 15px;
+	padding-right: 20px;
+}
+
 .beerCard {
-	width: 350px;
+	width: 500px;
 	color: black;
 	display: inline-flex;
 	margin: 10px 10px 40px 10px;
 }
 
 #beerArea {
-	background-image: url("../images/rustic.jpg"); /* this is not working. it can't locate this file for some reason*/
+	background-image: url("../images/rustic.jpg");
 	background-size: cover;
   	background-repeat: repeat-y;
 }
 
-#beerDivText {
-	font-size: 25px;
-	color: black;
-	margin: 30px 0px;
+.beerImg {
+	height: 85%;
+	padding-top: 20px;
+	padding-left: 20px;
 }
 
 
@@ -117,7 +126,7 @@ input:valid {
   background-color: green;
 }*/
   
-input:required {
+/*input:required {
   border-color: red;
   border-width: 5px;
 }
@@ -125,4 +134,4 @@ input:required {
 input:required:valid {
   border-color: green;
   border-width: 5px;  
-}
+}*/
