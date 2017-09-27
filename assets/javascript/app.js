@@ -197,6 +197,36 @@ $("body").on("click", ".beer-recs-btn",function(event) {
 	// 	beerType = stout;
 	// }
 
+	if(weatherType == "cloudy"||weatherType == "mostlycloudy"||weatherType == "partlycloudy"){
+		beerStyleID === 97 American Pilsner
+	}else if(weatherType == "nt_cloudy"||weatherType == "nt_mostlycloudy"||weatherType == "nt_partlycloudy"){
+		beerStyleID === 98 American Pilsner
+	}else if(weatherType == "fog"||weatherType == "hazy"){
+		beerStyleID === 31 Double IPA
+	}else if (weatherType === "nt_fog"||weatherType == "nt_hazy"){
+		beerStyleID === 30 American IPA
+	}else if (weatherType == "chancerain"||weatherType == "rain"){
+		beerStyleID === 61 belgian blonde
+	}else if (weatherType == "nt_chancerain"||weatherType == "nt_rain"){
+		beerStyleID === 59 Belgian triple
+	}else if (weatherType == "chancesleet"||weatherType == "sleet"){
+		beerStyleID === 
+	}else if (weatherType == "nt_chancesleet"||weatherType == "nt_sleet"){
+		beerStyleID ===
+	}else if (weatherType == "chanceflurries"||weatherType == "chancesnow"||weatherType == "flurries"||
+		weatherType == "snow"){
+		beerStyleID ==  43 american imperial stouts
+	}else if (weatherType == "nt_chanceflurries"||weatherType == "nt_chancesnow"||weatherType == "nt_flurries"||
+		weatherType == "nt_snow"){
+		beerStyleID ===
+	}else if (weatherType == "clear"||weatherType == "mostlysunny"||weatherType == "partlysunny"||weatherType == 
+		"sunny"||weatherType == "chancestorms"||weatherType == "tstorms"){
+		beerStyleID ===
+	}else if (weatherType == "nt_clear"||weatherType == "nt_mostlysunny"||weatherType == "nt_partlysunny"||
+		weatherType == "nt_sunny"||weatherType == "nt_chancestorms"||weatherType == "nt_tstorms"){
+		beerStyleID ===
+
+
 	createBeerRecs();
 
 	// automatically scrolls to the recommended beers once they're generated
