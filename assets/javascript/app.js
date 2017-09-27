@@ -35,6 +35,7 @@ for (var i = 0; i < statesArray.length; i++) {
 // function to dynamically add a 3-day weather forecast to the DOM based on city and state input
 function createForecast() {
 	$("#weatherArea").empty(); // empties weatherArea div so that we don't get duplicates
+	$("#beerArea").empty();
 
 	var queryURL = "http://api.wunderground.com/api/404b6bf115d36806/forecast/q/" + userState + "/" + userCity + ".json";
 
@@ -105,7 +106,7 @@ function createBeerRecs() {
 		for (var i = 0; i < response.length; i++) {
 			var beerCard = $("<div>");
 			beerCard.addClass("card beerCard text-center");
-			beerCard.attr("style", "background-color: rgba(245, 245, 245, 0.5);");
+			beerCard.attr("style", "background-color: rgba(36,41,46, 0.5);");
 
 			var cardRow = $("<div>");
 			cardRow.addClass("row");
@@ -129,19 +130,12 @@ function createBeerRecs() {
 			cardDesc.addClass("beer-text");
 			cardDesc.html(response[i].description);
 
-			var voteBtn = $("<button>");
-			voteBtn.addClass("btn btn-primary vote-btn");
-			voteBtn.attr("beerID", response[i].id);
-			voteBtn.html("Upvote!");
-			console.log(voteBtn.attr("beerID"));
-
 			beerCard.append(cardRow);
 			cardRow.append(cardColImg);
 			cardColImg.append(cardImg);
 			cardRow.append(cardBody);
 			cardBody.append(cardTitle);
 			cardBody.append(cardDesc);
-			cardBody.append(voteBtn);
 			$("#beerArea").append(beerCard);
 		}
 		var beerDivText = "<p class='text-center' id='beerDivText'>Recommended beers for " + dayOfWeek + "</p>";
@@ -180,8 +174,8 @@ $("#submit-btn").on("click", function(event) {
 	}, 1000);
 });
 
-// when "Beer Me" button is clicked, the weather type for that day is grabbed and the createBeerRecs function is calle
-$("body").on("click", ".beer-recs-btn",function(event) {
+// when "Beer Me" button is clicked, the weather type for that day is grabbed and the createBeerRecs function is called
+$("body").on("click", ".beer-recs-btn", function(event) {
 	event.preventDefault();
 
 	// stores the clicked day to use as input in beerDivText
@@ -194,17 +188,17 @@ $("body").on("click", ".beer-recs-btn",function(event) {
 
 	// logic for pairing weather type to beer style
 	if (weatherType == "cloudy" || weatherType == "mostlycloudy" || weatherType == "partlycloudy") {
-		beerType = "premium lager";
+		beerType = "lager";
 	} else if (weatherType == "nt_cloudy" || weatherType == "nt_mostlycloudy" || weatherType == "nt_partlycloudy") {
-		beerType = "light lager";
+		beerType = "lager";
 	} else if (weatherType == "fog" || weatherType == "hazy") {
-		beerType = "sours";
+		beerType = "belgian";
 	} else if (weatherType == "nt_fog" || weatherType == "nt_hazy") {
-		beerType = "saison";
+		beerType = "belgian";
 	} else if (weatherType == "chancerain" || weatherType == "rain") {
 		beerType = "pilsner";
 	} else if (weatherType == "nt_chancerain" || weatherType == "nt_rain") {
-		beerType = "amber";
+		beerType = "pilsner";
 	} else if (weatherType == "chancesleet" || weatherType == "sleet") {
 		beerType = "ipa";
 	} else if (weatherType == "nt_chancesleet" || weatherType == "nt_sleet") {
@@ -214,12 +208,12 @@ $("body").on("click", ".beer-recs-btn",function(event) {
 	} else if (weatherType == "nt_chanceflurries" || weatherType == "nt_chancesnow" || weatherType == "nt_flurries" || weatherType == "nt_snow") {
 		beerType = "stout";
 	} else if (weatherType == "clear" || weatherType == "mostlysunny" || weatherType == "partlysunny" || weatherType == "sunny") {
-		beerType = "light";
+		beerType = "ipa";
 	} else if (weatherType == "nt_clear" || weatherType == "nt_mostlysunny" || weatherType == "nt_partlysunny" || weatherType == "nt_sunny") {
-		beerType = "light";
-	} else if (weatherType == "chancestorms" || weatherType == "tstorms") {
-		beerType = "cream ale";
-	} else if (weatherType == "nt_chancestorms" || weatherType == "nt_tstorms") {
+		beerType = "ipa";
+	} else if (weatherType == "chancetstorms" || weatherType == "tstorms") {
+		beerType = "ale";
+	} else if (weatherType == "nt_chancetstorms" || weatherType == "nt_tstorms") {
 		beerType = "ale";
 	}
 
@@ -230,3 +224,4 @@ $("body").on("click", ".beer-recs-btn",function(event) {
 		scrollTop: $("#beerArea").offset().top
 	}, 1000);
 });
+

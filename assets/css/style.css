@@ -103,16 +103,17 @@ header {
 .beer-title {
 	font-size: 25px;
 	padding-right: 20px;
+	color: #568dc4;
 }
 
 .beer-text {
 	font-size: 15px;
 	padding-right: 20px;
+	color: white;
 }
 
 .beerCard {
 	width: 400px;
-	color: black;
 	display: inline-flex;
 	margin: 10px 15px 40px 15px;
 }
