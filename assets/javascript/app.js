@@ -106,7 +106,7 @@ function createBeerRecs() {
 		for (var i = 0; i < response.length; i++) {
 			var beerCard = $("<div>");
 			beerCard.addClass("card beerCard text-center");
-			beerCard.attr("style", "background-color: rgba(36,41,46, 0.5);");
+			beerCard.attr("style", "background-color: rgba(67, 63, 64, 0.5);");
 
 			var cardRow = $("<div>");
 			cardRow.addClass("row");
@@ -187,33 +187,19 @@ $("body").on("click", ".beer-recs-btn", function(event) {
 	console.log(weatherType);
 
 	// logic for pairing weather type to beer style
-	if (weatherType == "cloudy" || weatherType == "mostlycloudy" || weatherType == "partlycloudy") {
+	if (weatherType == "cloudy" || weatherType == "mostlycloudy" || weatherType == "partlycloudy" || weatherType == "nt_cloudy" || weatherType == "nt_mostlycloudy" || weatherType == "nt_partlycloudy") {
 		beerType = "lager";
-	} else if (weatherType == "nt_cloudy" || weatherType == "nt_mostlycloudy" || weatherType == "nt_partlycloudy") {
-		beerType = "lager";
-	} else if (weatherType == "fog" || weatherType == "hazy") {
-		beerType = "belgian";
-	} else if (weatherType == "nt_fog" || weatherType == "nt_hazy") {
-		beerType = "belgian";
-	} else if (weatherType == "chancerain" || weatherType == "rain") {
+	} else if (weatherType == "fog" || weatherType == "hazy" || weatherType == "nt_fog" || weatherType == "nt_hazy") {
 		beerType = "pilsner";
-	} else if (weatherType == "nt_chancerain" || weatherType == "nt_rain") {
-		beerType = "pilsner";
-	} else if (weatherType == "chancesleet" || weatherType == "sleet") {
-		beerType = "ipa";
-	} else if (weatherType == "nt_chancesleet" || weatherType == "nt_sleet") {
+	} else if (weatherType == "chancerain" || weatherType == "rain" || weatherType == "nt_chancerain" || weatherType == "nt_rain") {
+		beerType = "belgian";
+	} else if (weatherType == "chancesleet" || weatherType == "sleet" || weatherType == "nt_chancesleet" || weatherType == "nt_sleet") {
 		beerType = "porter";
-	} else if (weatherType == "chanceflurries" || weatherType == "chancesnow" || weatherType == "flurries" || weatherType == "snow") {
-		beerType = "cider";
-	} else if (weatherType == "nt_chanceflurries" || weatherType == "nt_chancesnow" || weatherType == "nt_flurries" || weatherType == "nt_snow") {
+	} else if (weatherType == "chanceflurries" || weatherType == "chancesnow" || weatherType == "flurries" || weatherType == "snow" || weatherType == "nt_chanceflurries" || weatherType == "nt_chancesnow" || weatherType == "nt_flurries" || weatherType == "nt_snow") {
 		beerType = "stout";
-	} else if (weatherType == "clear" || weatherType == "mostlysunny" || weatherType == "partlysunny" || weatherType == "sunny") {
+	} else if (weatherType == "clear" || weatherType == "mostlysunny" || weatherType == "partlysunny" || weatherType == "sunny" || weatherType == "nt_clear" || weatherType == "nt_mostlysunny" || weatherType == "nt_partlysunny" || weatherType == "nt_sunny") {
 		beerType = "ipa";
-	} else if (weatherType == "nt_clear" || weatherType == "nt_mostlysunny" || weatherType == "nt_partlysunny" || weatherType == "nt_sunny") {
-		beerType = "ipa";
-	} else if (weatherType == "chancetstorms" || weatherType == "tstorms") {
-		beerType = "ale";
-	} else if (weatherType == "nt_chancetstorms" || weatherType == "nt_tstorms") {
+	} else if (weatherType == "chancetstorms" || weatherType == "tstorms" || weatherType == "nt_chancetstorms" || weatherType == "nt_tstorms") {
 		beerType = "ale";
 	}
 

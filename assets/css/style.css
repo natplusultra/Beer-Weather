@@ -5,10 +5,12 @@ header {
 }
 
 .topDiv {
-	background-image: url("../images/cheers.jpg");
+	background-image: url("../images/cheers-dark.jpg");
   	background-size: cover;
   	background-repeat: no-repeat;
+  	background-color: rgba(67, 63, 64, 0.7);
 	height: 100vh;
+	color: white;
 }
 
 #inputArea {
@@ -40,13 +42,13 @@ header {
 #userInput {
 	width: 200px;
 	padding-left: 10px;
+	color: black;
 }
 
 #textArea {
-	font-size: 22px;
-	padding: 60px 20px;
-	color: black;
-	background-color: rgba(245, 245, 245, 0.4);
+	font-size: 20px;
+	padding: 45px 20px;
+	color: white;
 }
 
 #weatherArea, #beerArea {
@@ -56,10 +58,6 @@ header {
 #weatherArea {
 	background-color: #1a2738;
 }
-
-/*#topBeer {
-	margin: 50px 0px;
-}*/
 
 .btn {
 	background-color: #337ab7;
@@ -71,23 +69,17 @@ header {
 	color: black;
 }
 
-#weatherDivText{
-	font-size: 25px;
-	color: white;
-	margin: 30px 0px;
-}
-
-#beerDivText {
+#weatherDivText, #beerDivText{
 	font-size: 30px;
 	color: white;
-	margin: 40px 0px;
+	margin: 50px 0px;
 }
 
 .weatherCard {
 	width: 200px;
 	color: black;
 	display: inline-flex;
-	margin: 10px 10px 40px 10px;
+	margin: 10px 10px 50px 10px;
 }
 
 .weatherImg {
@@ -103,7 +95,7 @@ header {
 .beer-title {
 	font-size: 25px;
 	padding-right: 20px;
-	color: #568dc4;
+	color: #8d9ea0;
 }
 
 .beer-text {
@@ -115,7 +107,7 @@ header {
 .beerCard {
 	width: 400px;
 	display: inline-flex;
-	margin: 10px 15px 40px 15px;
+	margin: 10px 15px 50px 15px;
 }
 
 #beerArea {
@@ -125,8 +117,8 @@ header {
 }
 
 .beerImg {
-	height: 85%;
-	padding-top: 20px;
+	height: 250px;
+	padding-top: 35px;
 	padding-left: 20px;
 }
 
