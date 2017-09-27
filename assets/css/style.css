@@ -22,10 +22,14 @@ header {
 }
 
 #title {
-	font-size: 100px;
+	font-size: 110px;
 	letter-spacing: 3px;
 	padding-left: 20px;
 	padding-right: 20px;
+}
+
+#slogan {
+	font-size: 20px;
 }
 
 .btn {
@@ -39,9 +43,10 @@ header {
 }
 
 #textArea {
-	font-size: 17px;
-	margin: 50px 0px;
-	color: white;
+	font-size: 22px;
+	padding: 60px 20px;
+	color: black;
+	background-color: rgba(245, 245, 245, 0.4);
 }
 
 #weatherArea, #beerArea {

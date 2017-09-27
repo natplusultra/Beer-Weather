@@ -92,7 +92,7 @@ function createBeerRecs() {
 	$("#beerArea").empty(); // empties beerArea div to prevent duplicates
 
 	// var queryURL = "https://api.punkapi.com/v2/beers?beer_name=" + beerType;
-	var queryURL = "https://api.punkapi.com/v2/beers?beer_name=lager";
+	var queryURL = "https://api.punkapi.com/v2/beers?beer_name=ale";
 
 	// ajax call to the Punk API
 	$.ajax ({
