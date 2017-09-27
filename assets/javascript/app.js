@@ -91,8 +91,7 @@ function createForecast() {
 function createBeerRecs() {
 	$("#beerArea").empty(); // empties beerArea div to prevent duplicates
 
-	// var queryURL = "https://api.punkapi.com/v2/beers?beer_name=" + beerType;
-	var queryURL = "https://api.punkapi.com/v2/beers?beer_name=ale";
+	var queryURL = "https://api.punkapi.com/v2/beers?beer_name=" + beerType;
 
 	// ajax call to the Punk API
 	$.ajax ({
@@ -193,39 +192,36 @@ $("body").on("click", ".beer-recs-btn",function(event) {
 	var weatherType = $(this).attr("weatherType");
 	console.log(weatherType);
 
-	// if (weatherType == "cloudy" || "partly cloudy") {
-	// 	beerType = stout;
-	// }
-
-	if(weatherType == "cloudy"||weatherType == "mostlycloudy"||weatherType == "partlycloudy"){
-		beerStyleID === 97 American Pilsner
-	}else if(weatherType == "nt_cloudy"||weatherType == "nt_mostlycloudy"||weatherType == "nt_partlycloudy"){
-		beerStyleID === 98 American Pilsner
-	}else if(weatherType == "fog"||weatherType == "hazy"){
-		beerStyleID === 31 Double IPA
-	}else if (weatherType === "nt_fog"||weatherType == "nt_hazy"){
-		beerStyleID === 30 American IPA
-	}else if (weatherType == "chancerain"||weatherType == "rain"){
-		beerStyleID === 61 belgian blonde
-	}else if (weatherType == "nt_chancerain"||weatherType == "nt_rain"){
-		beerStyleID === 59 Belgian triple
-	}else if (weatherType == "chancesleet"||weatherType == "sleet"){
-		beerStyleID === 
-	}else if (weatherType == "nt_chancesleet"||weatherType == "nt_sleet"){
-		beerStyleID ===
-	}else if (weatherType == "chanceflurries"||weatherType == "chancesnow"||weatherType == "flurries"||
-		weatherType == "snow"){
-		beerStyleID ==  43 american imperial stouts
-	}else if (weatherType == "nt_chanceflurries"||weatherType == "nt_chancesnow"||weatherType == "nt_flurries"||
-		weatherType == "nt_snow"){
-		beerStyleID ===
-	}else if (weatherType == "clear"||weatherType == "mostlysunny"||weatherType == "partlysunny"||weatherType == 
-		"sunny"||weatherType == "chancestorms"||weatherType == "tstorms"){
-		beerStyleID ===
-	}else if (weatherType == "nt_clear"||weatherType == "nt_mostlysunny"||weatherType == "nt_partlysunny"||
-		weatherType == "nt_sunny"||weatherType == "nt_chancestorms"||weatherType == "nt_tstorms"){
-		beerStyleID ===
-
+	// logic for pairing weather type to beer style
+	if (weatherType == "cloudy" || weatherType == "mostlycloudy" || weatherType == "partlycloudy") {
+		beerType = "premium lager";
+	} else if (weatherType == "nt_cloudy" || weatherType == "nt_mostlycloudy" || weatherType == "nt_partlycloudy") {
+		beerType = "light lager";
+	} else if (weatherType == "fog" || weatherType == "hazy") {
+		beerType = "sours";
+	} else if (weatherType == "nt_fog" || weatherType == "nt_hazy") {
+		beerType = "saison";
+	} else if (weatherType == "chancerain" || weatherType == "rain") {
+		beerType = "pilsner";
+	} else if (weatherType == "nt_chancerain" || weatherType == "nt_rain") {
+		beerType = "amber";
+	} else if (weatherType == "chancesleet" || weatherType == "sleet") {
+		beerType = "ipa";
+	} else if (weatherType == "nt_chancesleet" || weatherType == "nt_sleet") {
+		beerType = "porter";
+	} else if (weatherType == "chanceflurries" || weatherType == "chancesnow" || weatherType == "flurries" || weatherType == "snow") {
+		beerType = "cider";
+	} else if (weatherType == "nt_chanceflurries" || weatherType == "nt_chancesnow" || weatherType == "nt_flurries" || weatherType == "nt_snow") {
+		beerType = "stout";
+	} else if (weatherType == "clear" || weatherType == "mostlysunny" || weatherType == "partlysunny" || weatherType == "sunny") {
+		beerType = "light";
+	} else if (weatherType == "nt_clear" || weatherType == "nt_mostlysunny" || weatherType == "nt_partlysunny" || weatherType == "nt_sunny") {
+		beerType = "light";
+	} else if (weatherType == "chancestorms" || weatherType == "tstorms") {
+		beerType = "cream ale";
+	} else if (weatherType == "nt_chancestorms" || weatherType == "nt_tstorms") {
+		beerType = "ale";
+	}
 
 	createBeerRecs();
 
