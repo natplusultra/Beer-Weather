@@ -43,9 +43,14 @@ function createForecast() {
 		url: queryURL,
 		method: "GET"
 	}).done(function(response) {
-		console.log(response);
+		
+		if (response.response.error){
+			$("#errorText").html(response.response.error.description);
+			return;
+		}
+		
 		var response = response.forecast.txt_forecast.forecastday;
-
+		
 		// creates a display card for each day's forecast that contains the day, weather image, temperature, and weather description
 		for (var i = 0; i < 6; i++) {
 			var weatherCard = $("<div>");
