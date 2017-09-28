@@ -1,12 +1,12 @@
 header {
-	padding: 70px 0px;
+	padding: 30px 0px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .topDiv {
 	background-image: url("../images/cheers-dark.jpg");
-  	background-size: 100% 100%;
+  	background-size: cover;
   	background-repeat: no-repeat;
   	background-color: rgba(67, 63, 64, 0.7);
 	height: 100vh;
@@ -51,7 +51,7 @@ header {
 
 #textArea {
 	font-size: 20px;
-	padding: 45px 20px;
+	padding: 15px;
 	color: white;
 }
 
