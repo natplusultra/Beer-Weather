@@ -6,7 +6,7 @@ header {
 
 .topDiv {
 	background-image: url("../images/cheers-dark.jpg");
-  	background-size: cover;
+  	background-size: 100% 100%;
   	background-repeat: no-repeat;
   	background-color: rgba(67, 63, 64, 0.7);
 	height: 100vh;
