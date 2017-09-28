@@ -125,22 +125,3 @@ header {
 	padding-top: 35px;
 	padding-left: 20px;
 }
-
-
-/*input:invalid {
-  background-color: red;
-}*/
-/*
-input:valid {
-  background-color: green;
-}*/
-  
-/*input:required {
-  border-color: red;
-  border-width: 5px;
-}
-
-input:required:valid {
-  border-color: green;
-  border-width: 5px;  
-}*/

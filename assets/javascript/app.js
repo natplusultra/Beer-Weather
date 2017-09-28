@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 
 var database = firebase.database().ref("/");
 
-// creates a "location" child and a "beers" child in the main database
+// creates a "location" child in the main database
 var loc = database.child("location");
 
 // initialize global variables
