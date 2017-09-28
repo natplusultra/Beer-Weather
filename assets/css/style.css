@@ -125,3 +125,7 @@ header {
 	padding-top: 35px;
 	padding-left: 20px;
 }
+
+#errorText {
+	margin: 0px 15px;
+}

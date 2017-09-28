@@ -151,6 +151,9 @@ function createBeerRecs() {
 $("#submit-btn").on("click", function(event) {
 	event.preventDefault();
 
+	// clears the error message if a previous input generated an invalid city and state
+	$("#errorText").empty();
+
 	//grabs user input
 	userCity = $("#userInput").val().trim();
 	userState = $("#inlineFormCustomSelect").val();
