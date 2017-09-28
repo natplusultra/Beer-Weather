@@ -36,7 +36,7 @@ function createForecast() {
 	$("#weatherArea").empty(); // empties weatherArea div so that we don't get duplicates
 	$("#beerArea").empty();
 
-	var queryURL = "http://api.wunderground.com/api/404b6bf115d36806/forecast/q/" + userState + "/" + userCity + ".json";
+	var queryURL = "https://api.wunderground.com/api/404b6bf115d36806/forecast/q/" + userState + "/" + userCity + ".json";
 
 	// ajax call the to the Weather Underground API
 	$.ajax ({
