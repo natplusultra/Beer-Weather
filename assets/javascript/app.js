@@ -14,7 +14,6 @@ var database = firebase.database().ref("/");
 
 // creates a "location" child and a "beers" child in the main database
 var loc = database.child("location");
-var beers = database.child("beers");
 
 // initialize global variables
 var userCity;
