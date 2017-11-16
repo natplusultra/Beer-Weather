@@ -13,3 +13,9 @@ BeerCast is a clean and easy-to-use single-page web application that will recomm
 
 ### Technologies Used
 HTML, CSS, JavaScript, jQuery, AJAX, JSON, Bootstrap, Bootswatch, Firebase, Weather Underground API, Punk API
+
+![BeerCast Screenshot 1](https://github.com/natplusultra/BeerCast/blob/master/assets/images/beer1.png) 
+
+![BeerCast Screenshot 2](https://github.com/natplusultra/BeerCast/blob/master/assets/images/beer2.png) 
+
+![BeerCast Screenshot 3](https://github.com/natplusultra/BeerCast/blob/master/assets/images/beer3.png) 
