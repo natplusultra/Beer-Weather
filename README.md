@@ -12,4 +12,4 @@ BeerCast is a clean and easy-to-use single-page web application that will recomm
 * The style of beer is passed as a parameter in an AJAX "GET" call to the Punk API (the beer API), and Punk API returns all the data for that particular style of beer, which is then used to dynamically generate the beer recommendations HTML that displays on the DOM
 
 ### Technologies Used
-HTML, CSS, JavaScript, jQuery, AJAX, Bootstrap, Bootswatch, Firebase, Weather Underground API, Punk API
+HTML, CSS, JavaScript, jQuery, AJAX, JSON, Bootstrap, Bootswatch, Firebase, Weather Underground API, Punk API
