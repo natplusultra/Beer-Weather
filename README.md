@@ -1,6 +1,5 @@
 # BeerCast
 
-### A beer for any weather, any time.
 BeerCast is a clean and easy-to-use single-page web application that will recommend an appropriate beer based on the weather forecasted for your location. Beer and weather may seem like an unlikely pairing, but it's a pairing that takes into consideration the mood and vibe of an experience in order to create a memorable impression. BeerCast can recommend a beer that tastes like it was made just for the occasion.
 
 ### How It Works
